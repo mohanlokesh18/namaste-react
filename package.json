@@ -1,0 +1,28 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is Namaste React from Akshay Saini",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silenteyes18/namaste-react.git"
+  },
+  "author": "Mohan Lokesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/silenteyes18/namaste-react/issues"
+  },
+  "homepage": "https://github.com/silenteyes18/namaste-react#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "browserlist":[
+    "last 10 versions"
+  ]
+}
