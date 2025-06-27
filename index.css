@@ -1,3 +1,118 @@
-#heading{
-    color: blue;
+.component{
+    font-family: Gilroy;
+}
+.headerContainer{
+    display: flex;
+    background-color: #fff;
+    justify-content: space-between;
+    padding: 5px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 55px;
+}
+.navItems{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    padding: 10px;
+}
+.bodyContainer{
+    margin-top: 9%;
+    background-color: rgb(255, 255, 255);
+}
+.searchContainer{
+    display: flex;
+    height: auto;
+    align-items: center;
+    gap: 10px; 
+    margin-bottom: 13px;
+    padding-left: 15px;
+}
+.searchImg{
+    width: 40px;
+    height: 40px;
+}
+.inputBox{
+  flex: 1;                 
+  height: 32px;            
+  padding: 4px 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  justify-self: center;
+}
+.restContainer{
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    /* justify-content: space-evenly; */
+    gap:3%;
+}
+.restcard{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    width: 200px;
+    height: auto;
+    flex-wrap: wrap;
+    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 5%;
+}
+.restcard:hover{
+    border: 1px solid rgb(218, 216, 216);
+    border-radius: 10px;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.2);
+    /* cursor: pointer; */
+}
+.restImg{
+    width: 200px;
+    height: 150px;   
+    border-radius: 10px;
+}
+.loading {
+  font-size: 40px;
+  color: rgb(44, 36, 106);
+  text-align: center;
+  margin-top: 100px;
+}
+.shimmer-container{
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+.shimmer-card{
+    width: 200px;
+    height: 250px;
+    padding: 10px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e2e2e2 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.2s infinite;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.theme-btn{
+    background-color: rgb(82, 78, 78);
+    margin-right: 10px;
 }

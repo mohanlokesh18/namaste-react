@@ -1,0 +1,24 @@
+#heading{
+    color: blue;
+}
+.main{
+    display:flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    padding: 10px;
+}
+#img2{
+    display:flex;
+    justify-items: right;
+    padding: 5px;
+}
+#img1{
+    display:flex;
+    padding: 5px;
+    justify-items: center;
+}
+#inp{
+    width: 700px;
+    height: 30px;
+}
