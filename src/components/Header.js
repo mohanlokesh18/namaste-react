@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     const toggle = () => {
@@ -22,7 +23,8 @@ const Header = () => {
                 <img className="logo" alt="logo" src={LOGO_URL}></img>
             </div>
             <div className="navItems">
-                <label>Help</label>
+                <Link to="/about">About</Link>
+                <Link to="/contact">Contact</Link>
                 <label>{logInOut()}</label>
                 <label>Cart</label>
                 {toggle()}

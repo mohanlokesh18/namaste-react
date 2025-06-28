@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { SEARCH_LOGO_URL } from "../utils/constants";
-import restaurantList from "../utils/mockedData";
 import RestaurantCard from "./RestaurantCard"
 import swaggiData from "../utils/swaggiApiMockedData.json"
 import Shimmer from "./ShimmerLoadingCards";
@@ -22,16 +21,14 @@ const Body = () => {
     }
 
     const fetchData = async () => {
-    // const url = "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.8794598&lng=77.648473&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-    // // const url = "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.8794598&lng=77.648473&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
-    // const data = await fetch(url)    
-    // const jsonData = await data.json();
-    // console.log(jsonData);
-    // const url = "https://api.allorigins.win/raw?url=" + encodeURIComponent("https://corsproxy.io/?https://food-villa-backend.vercel.app/api/restaurants");
+    
+    const url = "https://raw.githubusercontent.com/silenteyes18/namaste-react/refs/heads/main/src/utils/swaggiApiMockedData.json";
+    const data = await fetch(url)    
+    const jsonSwaggiRestaurantData = await data.json();
+    console.log(jsonSwaggiRestaurantData);
 
 
-
-    setRestaurantData(swaggiData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setRestaurantData(jsonSwaggiRestaurantData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setIsLoading(false);
 
     }
