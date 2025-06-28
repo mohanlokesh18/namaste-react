@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { SEARCH_LOGO_URL } from "../utils/constants";
-import RestaurantCard from "./RestaurantCard"
-import swaggiData from "../utils/swaggiApiMockedData.json"
+import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./ShimmerLoadingCards";
 
 const Body = () => {
@@ -37,7 +36,7 @@ const Body = () => {
         <div className="bodyContainer">
             <div className="searchContainer">
                 <button onClick={filterRestaurant}>Top Restaurants👑</button>
-                <button onClick={()=>setRestaurantData(swaggiData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)}>❌</button>
+                <button onClick={()=>setRestaurantData(jsonSwaggiRestaurantData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)}>❌</button>
                 <label><img className="searchImg" alt="search icon" src={SEARCH_LOGO_URL}></img></label>
                 <input className="inputBox" value={searchQuery} onChange={(e)=>{setSearchQuery(e.target.value);}}></input>
             </div>
