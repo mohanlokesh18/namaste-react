@@ -5,9 +5,18 @@ const Error = () => {
 
   return (
     <div className="error-container">
-      <h1>Oops!!!</h1>
+      <h1>Oops!..💔</h1>
       <h2>Something went wrong!</h2>
-      <p>{error.status} - {error.statusText || error.message}</p>
+
+      {error ? (
+        <>
+          <p>
+            {error.status} - {error.statusText || error.message}
+          </p>
+        </>
+      ) : (
+        <p>Unexpected error occurred.</p>
+      )}
     </div>
   );
 };

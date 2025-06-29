@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { SEARCH_LOGO_URL, SWIGGY_RESTAURANT_API } from "../utils/constants";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./ShimmerLoadingCards";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   const [restaurantData, setRestaurantData] = useState([]);
@@ -10,14 +11,13 @@ const Body = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchData();
-    }, 500);
+    fetchData();
   }, []);
 
   const fetchData = async () => {
+    const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
     const url = SWIGGY_RESTAURANT_API;
-    const data = await fetch(url);
+    const data = await fetch(proxyUrl + encodeURIComponent(url));
     const jsonSwaggiRestaurantData = await data.json();
     console.log(jsonSwaggiRestaurantData);
 
@@ -67,7 +67,9 @@ const Body = () => {
             rest.info.name.toLowerCase().includes(searchQuery.toLowerCase())
           )
           .map((rest) => (
-            <RestaurantCard key={rest.info.id} resData={rest} />
+            <Link key={rest.info.id} to={`/restaurant/${rest.info.id}`}>
+              <RestaurantCard resData={rest} />
+            </Link>
           ))}
       </div>
     </div>

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This is Namaste React from Akshay Saini",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel index.html --no-cache",
     "build": "parcel build index.html",
     "test": "jest"
   },
