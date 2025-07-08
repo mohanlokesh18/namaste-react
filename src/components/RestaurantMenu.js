@@ -1,35 +1,17 @@
-import { useEffect, useState } from "react";
-import { SWIGGY_MENU_API } from "../utils/constants";
 import Shimmer from "./ShimmerLoadingCards";
 import { useParams } from "react-router-dom";
 import Error from "./Error";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestMenuCategories from "./RestMenuCategories";
+import { useState } from "react";
 
 const RestaurantMenu = () => {
-  const [swiggyMenuData, setSwiggyMenuData] = useState([]);
   const { resId } = useParams();
+  const [addIndex, setAddIndex] = useState(null);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const swiggyMenuData = useRestaurantMenu(resId);
 
-  const fetchData = async () => {
-    try {
-      const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
-      // const swiggyUrl = SWIGGY_MENU_API + "606852";
-      // const swiggyUrl = SWIGGY_MENU_API + "791696";
-      const swiggyUrl = SWIGGY_MENU_API + resId;
-
-      const data = await fetch(proxyUrl + encodeURIComponent(swiggyUrl));
-      const json = await data.json();
-
-      setSwiggyMenuData(json);
-    } catch (error) {
-      console.log(error);
-      <Error />;
-    }
-  };
-
-  if (swiggyMenuData.length === 0) return <Shimmer />;
+  if (!swiggyMenuData) return <Shimmer />;
 
   const info = swiggyMenuData?.data?.cards?.find((c) => c?.card?.card?.info)
     ?.card?.card?.info;
@@ -53,34 +35,44 @@ const RestaurantMenu = () => {
     totalRatingsString,
   } = info;
 
-  return (
-    <div className="menu-container">
-      <h1>{name}</h1>
-      <h3>
-        ⭐ {avgRatingString}({totalRatingsString}) - {costForTwoMessage}
-      </h3>
-      <h3>{cuisines.join(", ")}</h3>
-      <h3>Outlet: {areaName}</h3>
-      <h3>⏱ Delivery Time: {sla.slaString}</h3>
+  const itemCategory = regularCards.filter((cat) => {
+    return (
+      cat?.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  });
 
-      {itemCards.map((item) => (
-        <div key={item?.card?.info?.id} className="menu-item">
+  console.log(itemCategory);
+
+  return (
+    <div className=" m-5">
+      <div className="flex flex-col justify-center items-center">
+        <div className="text-left">
+          <h1 className="font-bold text-2xl my-2">{name}</h1>
           <h3>
-            <b>{item?.card?.info?.name}</b>
+            {cuisines.join(", ")} - {costForTwoMessage}
           </h3>
-          <h4>
-            ₹
-            {item?.card?.info.finalPrice / 100 ||
-              item?.card?.info.price / 100 ||
-              item?.card?.info.defaultPrice / 100}
-          </h4>
-          <span className="star">
-            {item?.card?.info.ratings?.aggregatedRating?.rating
-              ? "★" + item?.card?.info.ratings?.aggregatedRating?.rating
-              : ""}
-          </span>
+          <h3 className="mx-0 text-gray-500 text-sm">Outlet: {areaName}</h3>
+          <h3 className="mx-0 text-gray-500 text-sm">
+            ⏱ Delivery Time: {sla.slaString}
+          </h3>
         </div>
-      ))}
+        <div>
+          <img src={itemCategory?.card?.card?.image}></img>
+        </div>
+      </div>
+      <div className="m-4">
+        {itemCategory.map((item, index) => (
+          <RestMenuCategories
+            key={item?.card?.card?.title}
+            categoryData={item?.card?.card}
+            showItem={index === addIndex ? true : false}
+            setIndexProp={() =>
+              index !== addIndex ? setAddIndex(index) : setAddIndex(null)
+            }
+          />
+        ))}
+      </div>
     </div>
   );
 };
