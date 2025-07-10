@@ -67,8 +67,8 @@ const Body = () => {
             setSearchQuery(e.target.value);
           }}
         ></input>
-        <label className="bg-green-200 flex items-center p-1 rounded-md">
-          Search
+        <label className="bg-green-200 flex items-center p-1 px-1.5 rounded-md">
+          🔍
         </label>
       </div>
       <div className="flex flex-wrap items-stretch justify-around m-2 pt-5">

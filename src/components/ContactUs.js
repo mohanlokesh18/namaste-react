@@ -1,12 +1,26 @@
 import useOnlineStatus from "../utils/useOnlineStatus";
 import TicTacToe from "../utils/OfflineGame";
+import { useContext } from "react";
+import userContext from "../utils/userContext";
 const ContactUs = () => {
   const onlineStatus = useOnlineStatus();
+  const { userName } = useContext(userContext);
   return onlineStatus ? (
-    <>
-      <h1>Radhe Radhe! Welcome to Contact us page</h1>
-      <h1>Radhe Radhe! Welcome to Contact us page</h1>
-    </>
+    <div className="m-2 p-2">
+      <h1 className="mb-4">
+        Hey {userName} feel free to send your thoughts.💭
+      </h1>
+      <form className="flex gap-10">
+        <input className="border-2 rounded-md p-0.5" placeholder="name"></input>
+        <input
+          className="border-2 rounded-md p-0.5"
+          placeholder="message"
+        ></input>
+        <button className="border-2 rounded-md p-0.5 bg-green-300">
+          Submit
+        </button>
+      </form>
+    </div>
   ) : (
     <TicTacToe />
   );

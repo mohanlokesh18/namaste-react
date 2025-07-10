@@ -10,18 +10,23 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import userContext from "./utils/userContext";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const Resturent = () => {
   const { userName } = useContext(userContext);
   const [user, setUser] = useState(userName);
   return (
-    <div className="component">
+    <Provider store={appStore}>
       <userContext.Provider value={{ userName: user, setUser }}>
-        <Header />
-        <Outlet />
+        <div className="component">
+          <Header />
+          <Outlet />
+          {/* <Footer/> */}
+        </div>
       </userContext.Provider>
-      {/* <Footer/> */}
-    </div>
+    </Provider>
   );
 };
 const appRoute = createBrowserRouter([
@@ -52,6 +57,10 @@ const appRoute = createBrowserRouter([
       {
         path: "/logout",
         element: <Logout />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,

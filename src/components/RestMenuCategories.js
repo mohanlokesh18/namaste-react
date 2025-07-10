@@ -1,9 +1,15 @@
 import { useState } from "react";
 import { REST_IMG_PREFIX_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const RestMenuCategories = ({ categoryData, showItem, setIndexProp }) => {
   const items = categoryData?.itemCards;
-  console.log(items);
+  // console.log(items);
+  const dispatch = useDispatch();
+  const addToCart = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div
       className="w-9/12 mx-auto my-4 shadow-lg rounded-md p-4 bg-gray-100 cursor-pointer"
@@ -22,8 +28,9 @@ const RestMenuCategories = ({ categoryData, showItem, setIndexProp }) => {
                 <h3 className="m-2">{item?.card?.info?.name}</h3>
                 <h3 className="mx-2 text-gray-700 pl-1">
                   ₹{" "}
-                  {item?.card?.info?.price / 100 ||
-                    item?.card?.info?.defaultPrice / 100}
+                  {(item?.card?.info?.finalPrice ??
+                    item?.card?.info?.price ??
+                    item?.card?.info?.defaultPrice) / 100}
                 </h3>
                 <h3 className="mx-2 text-gray-500 text-sm pl-1">
                   {item?.card?.info?.description}
@@ -31,7 +38,10 @@ const RestMenuCategories = ({ categoryData, showItem, setIndexProp }) => {
               </div>
               <div className="w-2/12">
                 <hr className="my-4 border-gray-400 " />
-                <button className="bg-black px-1 ml-[4%] mt-[6%] absolute rounded-md text-white">
+                <button
+                  className="bg-black px-1 ml-[4%] mt-[6%] absolute rounded-md text-white border-[1px] border-white"
+                  onClick={() => addToCart(item)}
+                >
                   +ADD
                 </button>
                 <img

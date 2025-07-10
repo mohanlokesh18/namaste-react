@@ -1,7 +1,7 @@
 const Shimmer = () => {
   return (
     <div className=" flex flex-wrap justify-between m-[6%]">
-      {Array(10)
+      {Array(12)
         .fill("")
         .map((arr, index) => (
           <div

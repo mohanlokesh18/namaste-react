@@ -3,10 +3,13 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const onlineStatus = useOnlineStatus();
   const { userName } = useContext(userContext);
+  const cartItems = useSelector((store) => store.cart.item);
+  console.log(cartItems);
   const toggle = () => {
     const [isOn, setIsOn] = useState(true);
     return (
@@ -57,7 +60,9 @@ const Header = () => {
         <label className="px-2 hover:bg-gray-100 rounded-md">
           {logInOut()}
         </label>
-        <label className="px-2 hover:bg-gray-100 rounded-md">🛒</label>
+        <label className="px-2 hover:bg-gray-100 rounded-md">
+          <Link to="/cart">🛒-({cartItems.length})</Link>
+        </label>
         <label className="mx-1 px-2 bg-gray-200 rounded-xl">{toggle()}</label>
         <label className="mx-1 px-2 bg-gray-200 rounded-xl">
           {userName === "Guest" ? "Guest" : `Hi, ${userName}!`}
