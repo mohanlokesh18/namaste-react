@@ -23,7 +23,7 @@ const Cart = () => {
         {cartItems.length === 0 ? "Cart is empty, please add items." : ""}
       </h1>
       {cartItems.map((item, index) => (
-        <div key={index} className="flex">
+        <div key={index} data-testid="cartItems" className="flex">
           <div className="flex flex-col w-10/12">
             <hr className="my-4 border-gray-400" />
             <h3 className="m-2">{item?.card?.info?.name}</h3>

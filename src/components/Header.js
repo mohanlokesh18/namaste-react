@@ -29,13 +29,13 @@ const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     return userName !== "Guest" ? (
-      <button>
-        <Link to="/logout">Logout</Link>
-      </button>
+      <Link to="/logout">
+        <button>Logout</button>
+      </Link>
     ) : (
-      <button>
-        <Link to="/login">Login</Link>
-      </button>
+      <Link to="/login">
+        <button>Login</button>
+      </Link>
     );
   };
   return (

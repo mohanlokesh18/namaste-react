@@ -2,8 +2,12 @@ import { REST_IMG_PREFIX_URL } from "../utils/constants";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
+  console.log(resData);
   return (
-    <div className="w-[250px] h-[420px] flex flex-col justify-between cursor-pointer shadow p-3 rounded-lg hover:bg-gray-100 mb-8 bg-white">
+    <div
+      data-testid="resData"
+      className="w-[250px] h-[420px] flex flex-col justify-between cursor-pointer shadow p-3 rounded-lg hover:bg-gray-100 mb-8 bg-white"
+    >
       <img
         className="rounded-lg"
         alt="restImg"

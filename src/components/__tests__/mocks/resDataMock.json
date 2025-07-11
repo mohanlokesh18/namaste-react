@@ -1,0 +1,81 @@
+{
+  "info": {
+    "id": "248725",
+    "name": "Natural Ice Cream",
+    "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/3/21/196af401-5c4e-4ae5-b809-90e5c2439141_248725.jpg",
+    "locality": "7th Sector",
+    "areaName": "HSR Layout",
+    "costForTwo": "₹150 for two",
+    "cuisines": ["Ice Cream", "Desserts"],
+    "avgRating": 4.7,
+    "veg": true,
+    "parentId": "2093",
+    "avgRatingString": "4.7",
+    "totalRatingsString": "7.1K+",
+    "sla": {
+      "deliveryTime": 38,
+      "lastMileTravel": 4.9,
+      "serviceability": "SERVICEABLE",
+      "slaString": "35-40 mins",
+      "lastMileTravelString": "4.9 km",
+      "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+      "nextCloseTime": "2025-07-11 01:00:00",
+      "opened": true
+    },
+    "badges": {
+      "imageBadges": [
+        {
+          "imageId": "Rxawards/_CATEGORY-Ice-creams.png",
+          "description": "Delivery!"
+        }
+      ]
+    },
+    "isOpen": true,
+    "type": "F",
+    "badgesV2": {
+      "entityBadges": {
+        "imageBased": {
+          "badgeObject": [
+            {
+              "attributes": {
+                "description": "Delivery!",
+                "imageId": "Rxawards/_CATEGORY-Ice-creams.png"
+              }
+            }
+          ]
+        },
+        "textBased": {},
+        "textExtendedBadges": {}
+      }
+    },
+    "aggregatedDiscountInfoV3": {
+      "header": "20% OFF",
+      "subHeader": "UPTO ₹50"
+    },
+    "differentiatedUi": {
+      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      "differentiatedUiMediaDetails": {
+        "lottie": {},
+        "video": {}
+      }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+      "aggregatedRating": {
+        "rating": "--"
+      }
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+  },
+  "analytics": {
+    "context": "seo-data-3c0ca5d6-59b8-4edc-b8eb-cd0bcf7f5f08"
+  },
+  "cta": {
+    "link": "https://www.swiggy.com/city/bangalore/natural-ice-cream-7th-sector-hsr-layout-rest248725",
+    "type": "WEBLINK"
+  }
+}

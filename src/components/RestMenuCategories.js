@@ -12,11 +12,14 @@ const RestMenuCategories = ({ categoryData, showItem, setIndexProp }) => {
   };
   return (
     <div
+      data-testid="restMenu"
       className="w-9/12 mx-auto my-4 shadow-lg rounded-md p-4 bg-gray-100 cursor-pointer"
       onClick={() => setIndexProp()}
     >
       <div className="flex justify-between text-lg">
-        <b>{categoryData.title}</b>
+        <b>
+          {categoryData.title}-({items.length})
+        </b>
         <span>{(showItem && "⬆️") || "⬇️"}</span>
       </div>
       {showItem &&
@@ -39,6 +42,7 @@ const RestMenuCategories = ({ categoryData, showItem, setIndexProp }) => {
               <div className="w-2/12">
                 <hr className="my-4 border-gray-400 " />
                 <button
+                  data-testid="addButton"
                   className="bg-black px-1 ml-[4%] mt-[6%] absolute rounded-md text-white border-[1px] border-white"
                   onClick={() => addToCart(item)}
                 >
